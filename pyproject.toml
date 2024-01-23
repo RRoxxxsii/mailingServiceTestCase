@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "mailingservice"
+version = "0.1.0"
+description = ""
+authors = ["RRoxxxsii <mishabur38@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.1"
+psycopg2-binary = "^2.9.9"
+djangorestframework = "^3.14.0"
+pre-commit = "^3.6.0"
+redis = "^5.0.1"
+celery = "^5.3.6"
+pytest-django = "^4.7.0"
+
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings"
+python_files = ["test_*.py", "*_test.py"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
