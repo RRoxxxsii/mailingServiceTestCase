@@ -1,10 +1,9 @@
-from django.db.models import QuerySet, Q
+from django.db.models import Q, QuerySet
 
-from .models import Mailing, Client
+from .models import Client, Mailing
 
 
 class MailingCRUD:
-
     @staticmethod
     def get_by_id(id_: int) -> Mailing | None:
         try:
@@ -25,9 +24,7 @@ class MailingCRUD:
 
 
 class ClientCRUD:
-
     @staticmethod
     def filter_on_tag_and_mobile_operator_code(tag: str, mobile_operator_code: str) -> QuerySet[Client]:
-        clients = Client.objects.filter(Q(tag=f'{tag}') & Q(mobile=f'{mobile_operator_code}'))
+        clients = Client.objects.filter(Q(tag=f"{tag}") & Q(mobile=f"{mobile_operator_code}"))
         return clients
-

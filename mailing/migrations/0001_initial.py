@@ -5,51 +5,59 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('mobile', models.CharField(max_length=11, unique=True, verbose_name='Номер телефона')),
-                ('mobile_operator_code', models.CharField(verbose_name='Код мобильного оператора')),
-                ('tag', models.CharField(blank=True, null=True, verbose_name='Метка')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("mobile", models.CharField(max_length=11, unique=True, verbose_name="Номер телефона")),
+                ("mobile_operator_code", models.CharField(verbose_name="Код мобильного оператора")),
+                ("tag", models.CharField(blank=True, null=True, verbose_name="Метка")),
             ],
             options={
-                'verbose_name': 'Клиент',
-                'verbose_name_plural': 'Клиенты',
+                "verbose_name": "Клиент",
+                "verbose_name_plural": "Клиенты",
             },
         ),
         migrations.CreateModel(
-            name='Mailing',
+            name="Mailing",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('message', models.TextField(verbose_name='Текст')),
-                ('filter', models.JSONField(verbose_name='Фильтр клиента')),
-                ('started_at', models.DateTimeField(verbose_name='Начало')),
-                ('finished_at', models.DateTimeField(verbose_name='Окончание')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("message", models.TextField(verbose_name="Текст")),
+                ("filter", models.JSONField(verbose_name="Фильтр клиента")),
+                ("started_at", models.DateTimeField(verbose_name="Начало")),
+                ("finished_at", models.DateTimeField(verbose_name="Окончание")),
             ],
             options={
-                'verbose_name': 'Рассылка',
-                'verbose_name_plural': 'Рассылки',
+                "verbose_name": "Рассылка",
+                "verbose_name_plural": "Рассылки",
             },
         ),
         migrations.CreateModel(
-            name='Message',
+            name="Message",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Время отправки')),
-                ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='clients', to='mailing.client')),
-                ('mailing', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='messages', to='mailing.mailing')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Время отправки")),
+                (
+                    "client",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="clients", to="mailing.client"
+                    ),
+                ),
+                (
+                    "mailing",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="messages", to="mailing.mailing"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Сообщение',
-                'verbose_name_plural': 'Сообщения',
+                "verbose_name": "Сообщение",
+                "verbose_name_plural": "Сообщения",
             },
         ),
     ]

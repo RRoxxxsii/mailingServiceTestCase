@@ -4,7 +4,6 @@ from mailing.db.models import Mailing
 
 
 class MailingSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Mailing
-        fields = '__all__'
+        fields = "__all__"

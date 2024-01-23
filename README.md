@@ -31,7 +31,7 @@
 <hr>
 <h3>Эндпоинты:</h3>
 
-1. `http://localhost:8000/mailings/create/` - `POST`. Создание рассылки. 
+1. `http://localhost:8000/mailings/create/` - `POST`. Создание рассылки.
 2. `http://localhost:8000/mailings/list/` - `GET`. Список созданных рассылок.
 
 <hr>
