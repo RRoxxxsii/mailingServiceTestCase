@@ -3,14 +3,24 @@
 <hr>
 
 <h2>Технологии:</h2>
-`django-rest-framework`, `celery`, `pytest`
-<br><br>
-**Версия Python:** 3.11.5
-<br>
-**СУБД:** PostgreSQL
-<br>
-**Менеджер пакетов:** Poetry
 
+`django-rest-framework`
+,
+`celery`
+,
+`pytest`
+
+<br><br>
+
+**Версия Python:** 3.11.5
+
+<br>
+
+**СУБД:** PostgreSQL
+
+<br>
+
+**Менеджер пакетов:** Poetry
 
 <hr>
 <h3>Запуск проекта: </h3>
